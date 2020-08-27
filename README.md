@@ -14,6 +14,6 @@ Members of the public may [fork](https://docs.github.com/en/github/collaborating
 * Create a branch for your work: `git checkout -b YOUR_BRANCH_NAME`
 * Work on your local branch as normal
 * When you are finished: `git push origin YOUR_BRANCH_NAME`
-* Finally, [navigate to this repo](https://github.com/springernature/frontend-express-demo/pulls) and create a Pull Request
+* [Navigate to this repo](https://github.com/springernature/frontend-express-demo/pulls) and create a Pull Request
 * Choose "master" as the destination branch and your forked repo "YOUR_BRANCH_NAME" as the source branch
 
