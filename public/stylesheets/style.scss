@@ -1,0 +1,12 @@
+@import 'utilities/spacing.scss';
+@import 'utilities/typography.scss';
+@import 'components/comments.scss';
+
+body {
+	font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+.container {
+	max-width: 1024px;
+	margin: 50px auto;
+}
