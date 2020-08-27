@@ -1,6 +1,6 @@
 # frontend-express-demo
 
-**This is a Public repository. Do not add company-specifc implementation details.**
+**SN Developers: This is a Public repository. Do not add company-specifc implementation details.**
 
 ## Purpose 
 
