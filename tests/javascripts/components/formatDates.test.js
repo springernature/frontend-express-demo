@@ -1,6 +1,6 @@
 import formatDates from '../../../javascripts/components/formatDates';
 import template from '../../../views/index.hbs';
-const renderObjectInstance = require('../../helpers/renderObject');
+const renderObjectInstance = require('../../../data/reports');
 
 describe('formatDates', () => {
   afterEach(() => {
