@@ -10,3 +10,17 @@ h2 {
 	color: #666;
 	letter-spacing: 1px;
 }
+
+.u-font-serif {
+	font-family: 'Palatino', 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia, Times, 'Times New Roman', serif;
+}
+
+.u-font-sans-serif {
+	font-family: 'Lucida Grande', Helvetica, Arial, sans-serif;
+}
+
+.u-pre-wrap {
+	font-family: inherit;
+	font-size: inherit;
+	white-space: pre-wrap;
+}
