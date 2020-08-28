@@ -34,6 +34,7 @@
     "jest-cli": "^26.4.2",
     "jest-handlebars": "^1.0.1",
     "nodemon": "^2.0.4",
+    "node-sass": "^4.14.1",
     "rollup": "^2.26.6",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-terser": "^6.1.0",
