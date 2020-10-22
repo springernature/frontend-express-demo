@@ -66,7 +66,7 @@ function lintJS() {
       let errorCount = 0;
       const cli = new CLIEngine.CLIEngine({});
 
-      const report = cli.executeOnFiles(["./javascripts/"]);
+      const report = cli.executeOnFiles(["./javascript/"]);
       report.results.forEach((result, index) => {
         if (result.messages.length) {
           errorCount++;

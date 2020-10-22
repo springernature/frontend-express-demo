@@ -6,11 +6,11 @@
     "build": "node --experimental-modules build.mjs && npm run build-sass && npm run build-js",
     "build-sass": "node-sass stylesheets/style.scss public/stylesheets/style.css --output-style compressed --source-map true",
     "build-js": "npm run rollup && npm run transpile-js",
-    "dev": "nodemon -e js,hbs,scss --ignore public/javascripts --exec 'npm run build && DEBUG=:* & npm start'",
+    "dev": "nodemon -e js,hbs,scss --ignore public/javascript --exec 'npm run build && DEBUG=:* & npm start'",
     "rollup": "rollup -c",
     "start": "node ./bin/www",
-    "test": "npx jest --verbose tests/javascripts/**/*.test.js",
-    "transpile-js": "npx google-closure-compiler public/javascripts/main.js > public/javascripts/main-legacy.js --language_in=ECMASCRIPT_2017 --language_out=ECMASCRIPT5 --compilation_level=SIMPLE_OPTIMIZATIONS --rewrite_polyfills=true --warning_level=QUIET --jscomp_off=checkVars --create_source_map public/js/main-legacy.js.map"
+    "test": "npx jest --verbose tests/javascript/**/*.test.js",
+    "transpile-js": "npx google-closure-compiler public/javascript/main.js > public/javascript/main-legacy.js --language_in=ECMASCRIPT_2017 --language_out=ECMASCRIPT5 --compilation_level=SIMPLE_OPTIMIZATIONS --rewrite_polyfills=true --warning_level=QUIET --jscomp_off=checkVars --create_source_map public/js/main-legacy.js.map"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -24,14 +24,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
     "@babel/register": "^7.9.0",
-    "@rollup/plugin-commonjs": "^11.1.0",
-    "@rollup/plugin-node-resolve": "^7.1.3",
     "babel-jest": "^25.4.0",
-    "babel-preset-es2015": "^6.24.1",
-    "core-js": "^3.6.5",
     "eslint": "^7.7.0",
     "eslint-config-google": "^0.14.0",
     "fs-extra": "^9.0.1",
@@ -42,7 +36,6 @@
     "rollup": "^2.26.6",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "rollup-plugin-terser": "^6.1.0",
     "stylelint": "^13.3.3"
   },
   "jest": {
