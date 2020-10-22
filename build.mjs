@@ -1,14 +1,7 @@
 /* eslint-disable no-async-promise-executor */
-import fs from 'fs';
 import fse from 'fs-extra';
-import rollup from 'rollup';
-import resolve from '@rollup/plugin-node-resolve';
-import commonjs from '@rollup/plugin-commonjs';
-import babel from "@babel/core";
 import stylelint from 'stylelint';
 import CLIEngine from "eslint";
-import {terser} from 'rollup-plugin-terser/rollup-plugin-terser.mjs';
-import sass from 'node-sass';
 
 const logger = {
   success: (msg) => {
@@ -26,9 +19,6 @@ const logger = {
 };
 
 const cleanPaths = ["public/javascript", "public/stylesheets", "public/images"];
-const jsRollupPaths = [{ source: "./javascripts/main.js", destination: "./public/javascripts/main.js" }];
-const jsBabelPaths = [{ source: "./public/javascripts/main.js", destination: "./public/javascripts/main-legacy.js" }];
-const sassPaths = [{ source: "./stylesheets/style.scss", destination: "./public/stylesheets/style.css" }];
 const copyPaths = [{ source: "./images", destination: "./public/images" }];
 
 // eslint-disable-next-line no-extend-native
@@ -49,94 +39,6 @@ function clean() {
     });
     logger.success('Clean task successful');
     resolve();
-  });
-}
-
-function rollupJS() {
-  logger.swanSays(`Compiling browser JavaScript`);
-  const rollupResolve = resolve;
-  return new Promise(async (resolve, reject) => {
-    try {
-      await asyncForEach(jsRollupPaths, async scriptFile => {
-        const inputOptions = {
-          input: scriptFile.source,
-          plugins: [
-            rollupResolve(),
-            commonjs(),
-            terser()
-          ]
-        };
-        const outputOptions = {
-          file: scriptFile.destination,
-          name: 'bundle',
-          format: 'iife',
-          sourcemap: true
-        };
-        const bundle = await rollup.rollup(inputOptions);
-        await bundle.generate(outputOptions);
-        await bundle.write(outputOptions);
-      });
-      logger.success("Build JS task completed");
-      return resolve();
-    } catch (err) {
-      return reject(err);
-    }
-  });
-}
-
-function transpileJS() {
-  logger.swanSays(`Transpiling browser JavaScript`);
-  const babelTransformOptions = {
-    root: '.',
-    presets: [
-      [
-        "@babel/preset-env",
-        {
-          useBuiltIns: "entry",
-          corejs: '3.6'
-        }
-      ]
-    ]
-  };
-  return new Promise(async (resolve, reject) => {
-    try {
-      await asyncForEach(jsBabelPaths, async scriptFile => {
-        const result = babel.transformFileSync(scriptFile.source, babelTransformOptions);
-        fs.writeFileSync(scriptFile.destination, result.code.toString());
-      });
-      logger.success("Transpile JS task successful");
-      return resolve();
-    } catch (err) {
-      return reject(err);
-    }
-  });
-}
-
-function buildSass() {
-  logger.swanSays(`Compiling SASS`);
-  return new Promise(async (resolve, reject) => {
-    try {
-      await asyncForEach(sassPaths, async sassPath => {
-        console.log(sassPath.destination);
-        const output = sass.renderSync({
-          file: sassPath.source,
-          outputStyle: 'compressed',
-          sourceMap: true,
-          outFile: sassPath.destination,
-          includePaths: [
-            './node_modules'
-          ]
-        });
-        fse.outputFileSync(`${sassPath.destination}`, output.css.toString());
-        fse.outputFileSync(`${sassPath.destination}.map`, output.map.toString());
-        // fs.writeFileSync(`${sassPath.destination}`, output.css.toString());
-        // fs.writeFileSync(`${sassPath.destination}.map`, output.map.toString());
-        logger.success(`Build ${sassPath.source} successful`);
-        return resolve();
-      });
-    } catch (err) {
-      return reject(err);
-    }
   });
 }
 
@@ -232,11 +134,8 @@ function build() {
   const start = new Date().getTime();
   logger.info(`Building frontend`);
   clean()
-    .then(buildSass)
     .then(lint)
     .then(copy)
-    .then(rollupJS)
-    .then(transpileJS)
     .then(() => {
       const stop = new Date().getTime();
       const timeItTook = (stop - start) / 1000;
@@ -258,23 +157,6 @@ switch (cliArgument) {
     break;
   case "clean":
     clean()
-      .catch(logger.failure);
-    break;
-  case "roll-up":
-    rollupJS()
-      .catch(logger.failure);
-    break;
-  case "transpile":
-    transpileJS()
-      .catch(logger.failure);
-    break;
-  case "build-sass":
-    buildSass()
-      .catch(logger.failure);
-    break;
-  case "build-js":
-    rollupJS()
-      .then(transpileJS)
       .catch(logger.failure);
     break;
   default:
