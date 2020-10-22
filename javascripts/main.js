@@ -1,9 +1,8 @@
-import 'core-js/features/array/from';
-import 'regenerator-runtime/runtime';
-import formatDates from './components/formatDates';
+
+import dummyComponent from './components/dummy-component';
 
 const start = () => {
-  formatDates();
+  dummyComponent();
 };
 
 if (/complete|interactive/.test(document.readyState)) {
