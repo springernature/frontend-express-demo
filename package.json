@@ -10,7 +10,7 @@
     "rollup": "rollup -c",
     "start": "node ./bin/www",
     "test": "npx jest --verbose tests/javascript/**/*.test.js",
-    "transpile-js": "npx google-closure-compiler public/javascript/main.js > public/javascript/main-legacy.js --language_in=ECMASCRIPT_2017 --language_out=ECMASCRIPT5 --compilation_level=SIMPLE_OPTIMIZATIONS --rewrite_polyfills=true --warning_level=QUIET --jscomp_off=checkVars --create_source_map public/js/main-legacy.js.map"
+    "transpile-js": "npx google-closure-compiler public/javascript/main.js > public/javascript/main-legacy.js --language_in=ECMASCRIPT_2017 --language_out=ECMASCRIPT5 --compilation_level=SIMPLE_OPTIMIZATIONS --rewrite_polyfills=true --warning_level=QUIET --jscomp_off=checkVars --create_source_map public/javascript/main-legacy.js.map"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
