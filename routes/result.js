@@ -7,10 +7,8 @@ router.get('/', function (req, res, next) {
 });
 
 router.post('/', function (req, res, next) {
-  // Rating successfully saved;
-
-  // TODO: Show a friendly confirmation message?
-  if (req.xhr) { // If it's an AJAX request, respond with some JSON otherwise render the ratings page
+  // If it's an AJAX request, respond with some JSON otherwise render the index page
+  if (req.xhr) {
     res.status(200).send({});
   } else {
     res.render('index', pageContent);
