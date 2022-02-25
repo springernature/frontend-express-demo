@@ -8,7 +8,8 @@ This is a public repository used for test purposes.
 
 ## Usage
 
-In order to use this demo you'll need to have [Node.js](https://nodejs.org/) installed - this test requires **Node.js 10.16.0+**.
+In order to use this demo you'll need to have [Node.js](https://nodejs.org/) installed.  
+This test requires **>= 10.16.0** and **<= 14.19.0**.
 
 1. Clone this repository on the command line
 1. Make sure the the correct version of Node.js (10.16.0+) is installed
