@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   title: 'Reports',
   reviewerName: 'Firstname Lastname',
   reviewDate: 'Wed, 26 Aug 2020 08:20:45 GMT',
