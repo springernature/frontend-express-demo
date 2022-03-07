@@ -1,11 +1,11 @@
 import express from 'express';
-import pageContent from '../data/reports.js';
+import {reports} from '../data/reports.js';
 
 const router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', pageContent);
+  res.render('index', reports);
 });
 
 export {router as indexRouter};

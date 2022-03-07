@@ -1,0 +1,12 @@
+{
+	"exclude": "/node_modules\/(?!(@springernature\/))/",
+	"presets": [
+		["@babel/preset-env",
+			{
+				"targets": {
+					"esmodules": true
+				}
+			}
+		]
+	]
+}

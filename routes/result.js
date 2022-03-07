@@ -1,5 +1,5 @@
 import express from 'express';
-import pageContent from '../data/reports.js';
+import {reports} from '../data/reports.js';
 
 const router = new express.Router();
 
@@ -12,7 +12,7 @@ router.post('/', function (req, res, next) {
   if (req.xhr) {
     res.status(200).send({});
   } else {
-    res.render('index', pageContent);
+    res.render('index', reports);
   }
 });
 

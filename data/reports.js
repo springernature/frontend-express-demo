@@ -10,7 +10,7 @@ const formatDate = dateString => {
 	return format(utcDate, 'dd-MMM-yyyy');
 };
 
-export default {
+export const reports = {
 	title: 'Reports',
 	reviewerName: 'Firstname Lastname',
 	reviewDate: formatDate('Wed, 26 Aug 2020 08:20:45 GMT'),
