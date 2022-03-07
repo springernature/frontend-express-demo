@@ -1,4 +1,4 @@
-import {myComponent} from '../../../js/components/my-component';
+import {myComponent} from '../components/my-component';
 
 afterEach(() => {
     jest.clearAllMocks();

@@ -12,7 +12,7 @@
     "dev": "npm-run-all --parallel start:dev \"build:* -- --watch\"",
     "start": "node app --experimental-modules",
     "start:dev": "nodemon npm start",
-    "test": "npx jest --verbose tests/js/**/*.test.js"
+    "test": "npx jest --verbose"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
