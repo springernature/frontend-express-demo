@@ -1,21 +1,4 @@
-@import 'utilities/spacing.scss';
-@import 'utilities/typography.scss';
-@import 'components/comments.scss';
-
-body {
-	color: #222;
-	font-size: 13px;
-	line-height: 1.76;
-}
-
-h1,
-h2,
-h3,
-p {
-	margin: 0;
-}
-
-.container {
-	max-width: 1024px;
-	margin: 50px auto;
-}
+@import 'variables';
+@import 'base';
+@import 'typography';
+@import 'report';

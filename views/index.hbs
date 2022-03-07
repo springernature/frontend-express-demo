@@ -1,17 +1,21 @@
-<h1 class="u-mb20 u-font-serif">{{title}}</h1>
-<div class="c-comments">
-    <div class="c-comments__content">
-        <h2 class="c-comments__heading u-mb20 u-font-serif">
-            {{reviewerName}}
-            <span class="u-ml20" data-component-format-date data-test="review-date">
-                {{reviewDate}}
-            </span>
-        </h2>
-        <div class="c-comments__text u-font-sans-serif">
-            <h3 class="u-mb10">Feedback for author(s)</h3>
-            <p class="u-pre-wrap u-mb15">{{{authorFeedbackText}}}</p>
-            <h3 class="u-mb10">Feedback for editor</h3>
-            <p class="u-pre-wrap">{{{editorFeedbackText}}}</p>
+<h1>{{title}}</h1>
+<div class="c-report">
+    <div class="c-report__content">
+		<header class="c-report__header">
+			<h2>{{reviewerName}}</h2>
+			<date class="c-report__date">
+				{{reviewDate}}
+			</date>
+		</header>
+        <div class="c-report__text">
+			<div class="c-report__section">
+				<h3 class="c-report__section-title">Feedback for author(s)</h3>
+				<p>{{{authorFeedbackText}}}</p>
+			</div>
+			<div class="c-report__section">
+            	<h3 class="c-report__section-title">Feedback for editor</h3>
+            	<p>{{{editorFeedbackText}}}</p>
+			</div>
         </div>
     </div>
     <div>

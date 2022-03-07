@@ -1,0 +1,18 @@
+html {
+	box-sizing: border-box;
+}
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+body {
+	color: #222;
+	font-family: $font-family-sans;
+}
+
+.container {
+	max-width: 1024px;
+	padding: 0 1rem;
+	margin: 3rem auto;
+}
