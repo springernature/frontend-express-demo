@@ -1,10 +1,11 @@
-const express = require('express');
+import express from 'express';
+import {reports} from '../data/reports.js';
+
 const router = express.Router();
-const pageContent = require('../data/reports');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', pageContent);
+  res.render('index', reports);
 });
 
-module.exports = router;
+export {router as indexRouter};

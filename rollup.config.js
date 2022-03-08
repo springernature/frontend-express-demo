@@ -1,16 +1,18 @@
-import resolve from 'rollup-plugin-node-resolve';
-import commonjs from 'rollup-plugin-commonjs';
+import {nodeResolve} from '@rollup/plugin-node-resolve';
+import {babel} from '@rollup/plugin-babel';
 
 export default {
-	input: 'javascript/main.js',
+	input: './js/main.js',
 	output: {
-		file: 'public/javascript/main.js',
+		file: './public/js/main.js',
 		name: 'bundle',
 		format: 'iife',
 		sourcemap: true
 	},
 	plugins: [
-		resolve(),
-		commonjs()
+		nodeResolve(),
+		babel({
+			babelHelpers: 'bundled' 
+		})
 	]
 };

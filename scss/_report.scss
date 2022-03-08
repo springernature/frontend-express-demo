@@ -1,0 +1,29 @@
+.c-report {
+	background-color: $light;
+	border-radius: 8px;
+	margin-bottom: 3rem;
+	padding: 1.5rem;
+}
+
+.c-report__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+
+.c-report__date {
+	font-size: $font-size-h2;
+	color: #666;
+}
+
+.c-report__section:not(:last-child) {
+	margin-bottom: 1.5rem;
+}
+
+.c-report__section p {
+	margin-bottom: 0;
+}
+
+.c-report__section-title {
+	margin-bottom: 0.5rem;
+}

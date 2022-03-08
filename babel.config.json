@@ -1,9 +1,12 @@
 {
-    "presets": ["@babel/preset-env"],
-    "plugins": ["transform-es2015-modules-commonjs"],
-    "env": {
-        "test": {
-          "plugins": ["@babel/transform-runtime"]
-        }
-      }
+	"exclude": "/node_modules\/(?!(@springernature\/))/",
+	"presets": [
+		["@babel/preset-env",
+			{
+				"targets": {
+					"esmodules": true
+				}
+			}
+		]
+	]
 }

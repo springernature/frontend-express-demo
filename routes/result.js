@@ -1,6 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const pageContent = require('../data/reports');
+import express from 'express';
+import {reports} from '../data/reports.js';
+
+const router = new express.Router();
 
 router.get('/', function (req, res, next) {
   res.send('This route only receives a form or XHR POST');
@@ -11,8 +12,8 @@ router.post('/', function (req, res, next) {
   if (req.xhr) {
     res.status(200).send({});
   } else {
-    res.render('index', pageContent);
+    res.render('index', reports);
   }
 });
 
-module.exports = router;
+export {router as resultRouter};
