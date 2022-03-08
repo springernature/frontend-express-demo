@@ -1,4 +1,4 @@
-import {myComponent} from '../components/my-component';
+import {example} from '../components/example';
 
 afterEach(() => {
     jest.clearAllMocks();
@@ -6,6 +6,6 @@ afterEach(() => {
 
 test('Should log to console', () => {
 	const logSpy = jest.spyOn(global.console, 'log').mockImplementation(() => {});
-	myComponent();
-	expect(logSpy).toHaveBeenCalledWith('My component ran on the page');
+	example();
+	expect(logSpy).toHaveBeenCalledWith('The example component ran on the page');
 })
