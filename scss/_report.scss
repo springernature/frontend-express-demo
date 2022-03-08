@@ -1,5 +1,5 @@
 .c-report {
-	background-color: #f3f3f3;
+	background-color: $light;
 	border-radius: 8px;
 	margin-bottom: 3rem;
 	padding: 1.5rem;
@@ -12,8 +12,8 @@
 }
 
 .c-report__date {
-	font-size: 1rem;
-	font-weight: 700;
+	font-size: $font-size-h2;
+	color: #666;
 }
 
 .c-report__section:not(:last-child) {

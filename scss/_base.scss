@@ -7,12 +7,12 @@ html {
 }
 
 body {
-	color: #222;
+	color: $dark;
 	font-family: $font-family-sans;
 }
 
 .container {
-	max-width: 1024px;
+	max-width: 1220px;
 	padding: 0 1rem;
 	margin: 3rem auto;
 }
