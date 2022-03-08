@@ -1,7 +1,7 @@
-import {myComponent} from "./components/my-component";
+import {example} from "./components/example";
 
 const start = () => {
-	myComponent();
+	example();
 };
 
 if (/complete|interactive/.test(document.readyState)) {
