@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "build:img": "imagemin ./img/* --out-dir=./public/img",
-    "build:sass": "sass ./scss/style.scss public/css/style.css --style=expanded --source-map",
+    "build:scss": "sass ./scss/style.scss ./public/css/style.css --style=expanded --source-map",
     "build:js": "rollup -c",
     "build": "npm-run-all --parallel build:*",
     "dev": "npm-run-all --parallel start:dev \"build:* -- --watch\"",
@@ -29,7 +29,7 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "babel-jest": "^26.6.3",
     "imagemin-cli": "^7.0.0",
-	  "jest": "^27.4.7",
+    "jest": "^27.4.7",
     "jest-handlebars": "^1.0.1",
     "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
