@@ -1,0 +1,20 @@
+// Sr-only
+@mixin sr-only() {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+// Restore-list-semantics
+// re-introducing implicit list semantics after usage of list-style-type "none"
+// s. https://unfetteredthoughts.net/2017/09/26/voiceover-and-list-style-type-none/
+@mixin restore-list-semantics() {
+    &::before {
+        @include sr-only();
+        content: '\200B'; /* zero-width space */
+    }
+}

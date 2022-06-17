@@ -1,4 +1,5 @@
 .c-report {
+	display: flex;
 	background-color: $light;
 	border-radius: 8px;
 	margin-bottom: 3rem;
@@ -26,4 +27,148 @@
 
 .c-report__section-title {
 	margin-bottom: 0.5rem;
+}
+
+.c-report__controls {
+	flex: 1 0 30%;
+	padding-left: 50px;
+}
+
+.c-report__controls-fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.c-report__controls-legend {
+	display: none;
+}
+
+.c-report__controls-list {
+	padding: 0;
+	display: flex;
+
+	// Multiple stars highlighting (enhancing safari 15+, chrome 105+)
+	// 1.1 highlight all inputs on hover
+	@supports selector(:has(*)) {
+		&:hover {
+			.c-report__controls-asinput {
+				background-image: url(/img/filled-star.svg);
+			}
+		}
+	
+		// 2.1 highlight all inputs on checked
+		&:not(:hover) {
+			&:has(*:checked) {
+				.c-report__controls-asinput {
+					background-image: url(/img/filled-star.svg);
+				}
+
+				// 2.2 reset highlight on successor inputs
+				.c-report__controls-list-item {
+					&:has(*:checked) {
+						~ .c-report__controls-list-item {
+							.c-report__controls-asinput {
+								background-image: url(/img/empty-star.svg);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.c-report__controls-list-item {
+	@include restore-list-semantics();
+	list-style: none;
+	padding: 0 5px;
+
+	// 1.2 reset highlight on successor inputs
+	@supports selector(:has(*)) {
+		&:hover {
+			~ .c-report__controls-list-item {
+				.c-report__controls-asinput {
+					background-image: url(/img/empty-star.svg);
+				}
+			}
+		}
+	}
+
+	&:first-child {
+		padding-left: 0;
+
+		.c-report__controls-label {
+			padding: 0 	1.625rem 0 0;
+		}
+
+		.c-report__controls-asinput,
+		.c-report__controls-input {
+			left: auto;
+			right: 0;
+		}
+
+		.c-report__controls-aslabel {
+			padding: 0 10px 0 0;
+		}
+	}
+
+	&:last-child {
+		padding-right: 0;
+	}
+
+	&:not(:first-child) {
+		&:not(:last-child) {
+			.c-report__controls-aslabel {
+				@include sr-only();
+			}
+		}
+	}
+}
+
+.c-report__controls-label {
+	position: relative;
+	padding-left: 1.625rem;
+	min-height: 1.5625rem;
+	display: flex;
+	align-items: center;
+}
+
+.c-report__controls-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 26px;
+	height: 25px;
+	margin: 0;
+	z-index: 1;
+	opacity: 0;
+	cursor: pointer;
+
+	&:checked {
+		~ .c-report__controls-asinput {
+			background-image: url(/img/filled-star.svg);
+		}
+	}
+}
+
+.c-report__controls-asinput {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 26px;
+	height: 25px;
+	background: url(/img/empty-star.svg) 0 0 transparent;
+}
+
+.c-report__controls-aslabel {
+	padding-left: 10px;
+	display: block;
+}
+
+.c-report__controls-feedback-message {
+	margin-top: 10px;
+	display: block;
+	font-style: normal;
+	color: forestgreen;
 }

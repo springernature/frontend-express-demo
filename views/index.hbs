@@ -1,24 +1,47 @@
 <h1>{{title}}</h1>
-<div class="c-report">
-    <div class="c-report__content">
-		<header class="c-report__header">
-			<h2>{{reviewerName}}</h2>
-			<date class="c-report__date">
-				{{reviewDate}}
-			</date>
-		</header>
-        <div class="c-report__text">
-			<div class="c-report__section">
-				<h3 class="c-report__section-title">Feedback for author(s)</h3>
-				<p>{{{authorFeedbackText}}}</p>
+<form action="/result" method="POST" class="c-reports-form" data-form-type="reports" data-submit-type="change">
+	<div class="c-report">
+		<div class="c-report__content">
+			<header class="c-report__header">
+				<h2>{{reviewerName}}</h2>
+				<date class="c-report__date">
+					{{reviewDate}}
+				</date>
+			</header>
+			<div class="c-report__text">
+				<div class="c-report__section">
+					<h3 class="c-report__section-title">Feedback for author(s)</h3>
+					<p>{{{authorFeedbackText}}}</p>
+				</div>
+				<div class="c-report__section">
+					<h3 class="c-report__section-title">Feedback for editor</h3>
+					<p>{{{editorFeedbackText}}}</p>
+				</div>
 			</div>
-			<div class="c-report__section">
-            	<h3 class="c-report__section-title">Feedback for editor</h3>
-            	<p>{{{editorFeedbackText}}}</p>
-			</div>
-        </div>
-    </div>
-    <div>
-		
-    </div>
-</div>
+			<aside>
+
+			</aside>
+		</div>
+		<div class="c-report__controls">
+			<fieldset class="c-report__controls-fieldset" data-fieldset-type="report" {{#if rating}}data-report-rating="{{rating}}"{{/if}}>
+				<legend class="c-report__controls-legend">How useful did you find this report?</legend>
+				<h3 class="c-report__controls-aslegend">How useful did you find this report?</h3>
+				<ul class="c-report__controls-list">
+					{{#each controlsListItems}}
+						<li class="c-report__controls-list-item">
+							<label for="{{id}}" class="c-report__controls-label">
+								<input class="c-report__controls-input" type="radio" name="rating" id="{{id}}" value="{{value}}" required="required" data-input-type="radio" />
+								<span class="c-report__controls-asinput" aria-hidden="true"></span>
+								<span class="c-report__controls-aslabel">{{labelText}}</span>
+							</label>
+						</li>
+					{{/each}}
+				</ul>
+				<button class="c-report__controls-submit" type="submit" data-button-type="submit">Submit</button>
+				{{#if rating}}
+					<em class="c-report__controls-feedback-message">Thanks, rated {{rating}} stars</em>
+				{{/if}}
+			</fieldset>
+		</div>
+	</div>
+</form>

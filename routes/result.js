@@ -12,6 +12,11 @@ router.post('/', function (req, res, next) {
   if (req.xhr) {
     res.status(200).send({});
   } else {
+    console.log(req.body.rating);
+    console.log(reports);
+
+    reports.rating = req.body.rating;
+
     res.render('index', reports);
   }
 });
