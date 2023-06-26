@@ -11,7 +11,7 @@
     "build": "npm-run-all --parallel build:*",
     "dev": "npm-run-all --parallel start:dev \"build:* -- --watch\"",
     "start": "node app --experimental-modules",
-    "start:dev": "nodemon npm start",
+    "start:dev": "nodemon -e scss,js --exec 'npm run build && npm start'",
     "test": "npx jest --verbose"
   },
   "dependencies": {
@@ -48,5 +48,9 @@
       "public"
     ],
     "setupFiles": []
+  },
+  "nodemonConfig": {
+    "ignore": ["**/public/**", "**/img/**"],
+    "delay": 2000
   }
 }
