@@ -46,12 +46,5 @@
       "public"
     ],
     "setupFiles": []
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "**/public/**",
-      "**/img/**"
-    ],
-    "delay": 2000
   }
 }
