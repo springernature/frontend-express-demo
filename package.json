@@ -9,8 +9,8 @@
     "build:scss": "sass ./scss/style.scss ./public/css/style.css --style=expanded --source-map",
     "build:js": "rollup -c",
     "build": "npm-run-all --parallel build:*",
-    "dev": "npm-run-all --parallel start \"build:* -- --watch\"",
     "start": "node app",
+    "start:dev": "npm-run-all --parallel start \"build:* -- --watch\"",
     "test": "npx jest --verbose"
   },
   "dependencies": {
