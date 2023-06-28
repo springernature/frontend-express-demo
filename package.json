@@ -9,9 +9,8 @@
     "build:scss": "sass ./scss/style.scss ./public/css/style.css --style=expanded --source-map",
     "build:js": "rollup -c",
     "build": "npm-run-all --parallel build:*",
-    "dev": "npm-run-all --parallel start:dev \"build:* -- --watch\"",
-    "start": "node app --experimental-modules",
-    "start:dev": "nodemon npm start",
+    "dev": "npm-run-all --parallel start \"build:* -- --watch\"",
+    "start": "node app",
     "test": "npx jest --verbose"
   },
   "dependencies": {
@@ -31,7 +30,6 @@
     "imagemin-cli": "^7.0.0",
     "jest": "^27.4.7",
     "jest-handlebars": "^1.0.1",
-    "nodemon": "^2.0.4",
     "npm-run-all": "^4.1.5",
     "rollup": "^2.33.3",
     "sass": "^1.49.9"
@@ -50,7 +48,10 @@
     "setupFiles": []
   },
   "nodemonConfig": {
-    "ignore": ["**/public/**", "**/img/**"],
+    "ignore": [
+      "**/public/**",
+      "**/img/**"
+    ],
     "delay": 2000
   }
 }
