@@ -17,4 +17,4 @@ If you use [NVM](https://github.com/nvm-sh/nvm), you can run `nvm use` to setup 
 1. Make any code changes in this repository. Commands to run and build the application:
     - Build: ```npm run build```
     - Start application locally (on port 3000): ```npm start```
-    - Start application locally and watch for changes (on port 3000): ```npm run dev```
+    - Start application locally and watch for changes (on port 3000): ```npm run start:dev```
