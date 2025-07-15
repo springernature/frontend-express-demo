@@ -8,7 +8,7 @@ This is a public repository used for test purposes.
 
 ## Usage
 
-In order to use this demo you'll need to have [Node.js](https://nodejs.org/) installed - this test requires **Node.js 16.14.0+**.
+In order to use this demo you'll need to have [Node.js](https://nodejs.org/) installed - this test requires **Node.js 24.6.1+**.
 If you use [NVM](https://github.com/nvm-sh/nvm), you can run `nvm use` to set up the Node / NPM version.
 
 1. Clone this repository on the command line
