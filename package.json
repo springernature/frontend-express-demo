@@ -10,7 +10,8 @@
     "build:js": "rollup -c",
     "build": "npm-run-all --parallel build:*",
     "start": "node app",
-    "start:dev": "npm-run-all --parallel start \"build:* -- --watch\"",
+    "start:dev": "npm-run-all --parallel dev:server \"build:* -- --watch\"",
+    "dev:server": "node --watch --watch-path=app.js --watch-path=routes --watch-path=data --watch-path=views app.js",
     "test": "npx jest --verbose"
   },
   "dependencies": {
