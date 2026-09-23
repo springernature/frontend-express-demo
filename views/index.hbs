@@ -1,24 +1,29 @@
 <h1>{{title}}</h1>
+{{#each items as | item |}}
 <div class="c-report">
 	<div class="c-report__content">
 		<header class="c-report__header">
-			<h2>{{reviewerName}}</h2>
+			<h2>{{item.reviewerName}}</h2>
 			<date class="c-report__date">
-				{{reviewDate}}
+				{{item.reviewDate}}
 			</date>
 		</header>
 		<div class="c-report__text">
 			<div class="c-report__section">
-				<h3 class="c-report__section-title">Feedback for author(s)</h3>
-				<p>{{{authorFeedbackText}}}</p>
+				<h3 class="c-report__section-title">{{../authorFeedbackTitle}}</h3>
+				<p>{{{item.authorFeedbackText}}}</p>
 			</div>
 			<div class="c-report__section">
-				<h3 class="c-report__section-title">Feedback for editor</h3>
-				<p>{{{editorFeedbackText}}}</p>
+				<h3 class="c-report__section-title">{{../editorFeedbackTitle}}</h3>
+				<p>{{{item.editorFeedbackText}}}</p>
 			</div>
 		</div>
 	</div>
-	<div>
-
+	<div class="c-report__rating">
+		<h4>{{../ratingTitle}}</h4>
+		<form action="" method="">
+			
+		</form>
 	</div>
 </div>
+{{/each}}
