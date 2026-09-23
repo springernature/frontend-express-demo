@@ -4,49 +4,37 @@
   "private": true,
   "main": "app.js",
   "type": "module",
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
-    "build:img": "node minify-images.js",
+    "build:img": "mkdir -p ./public/img && cp ./img/*.svg ./img/favicon/favicon.ico ./public/img/",
     "build:scss": "sass ./scss/style.scss ./public/css/style.css --style=expanded --source-map",
     "build:js": "rollup -c",
     "build": "npm-run-all --parallel build:*",
     "start": "node app",
-    "start:dev": "npm-run-all --parallel dev:server \"build:* -- --watch\"",
+    "start:dev": "npm-run-all --parallel dev:server dev:scss dev:js build:img",
+    "dev:scss": "sass ./scss/style.scss ./public/css/style.css --style=expanded --source-map --watch",
+    "dev:js": "rollup -c --watch",
     "dev:server": "node --watch --watch-path=app.js --watch-path=routes --watch-path=data --watch-path=views app.js",
     "test": "npx jest --verbose"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "date-fns": "^2.13.0",
-    "debug": "~2.6.9",
-    "express": "^4.22.1",
-    "hbs": "^4.2.1",
-    "morgan": "^1.10.1"
+    "date-fns": "^4.4.0",
+    "express": "^5.1.0",
+    "hbs": "^4.3.1",
+    "morgan": "^1.12.1"
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
-    "@babel/preset-env": "^7.16.11",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-node-resolve": "^13.1.3",
-    "babel-jest": "^30.3.0",
-    "imagemin": "^9.0.1",
-    "jest": "^30.3.0",
-    "jest-environment-jsdom": "^30.3.0",
-    "jest-handlebars": "^1.0.1",
+    "@babel/preset-env": "^7.17.5",
+    "@rollup/plugin-babel": "^7.1.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "babel-jest": "30.5.2",
+    "jest": "^30.5.2",
+    "jest-environment-jsdom": "^30.5.2",
     "npm-run-all": "^4.1.5",
-    "rollup": "^2.33.3",
-    "sass": "^1.89.2"
-  },
-  "jest": {
-    "testURL": "http://localhost:3001",
-    "transform": {
-      "^.+\\.js$": "babel-jest",
-      "\\.hbs$": "jest-handlebars"
-    },
-    "testEnvironment": "jsdom",
-    "transformIgnorePatterns": [],
-    "testPathIgnorePatterns": [
-      "public"
-    ],
-    "setupFiles": []
+    "rollup": "^4.63.4",
+    "sass": "^1.105.0"
   }
 }
