@@ -1,4 +1,3 @@
-@import 'variables';
-@import 'base';
-@import 'typography';
-@import 'report';
+@use 'base';
+@use 'typography';
+@use 'report';

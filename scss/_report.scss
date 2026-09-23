@@ -1,8 +1,17 @@
+@use 'variables';
+
 .c-report {
-	background-color: $light;
+	background-color: variables.$light;
 	border-radius: 8px;
 	margin-bottom: 3rem;
 	padding: 1.5rem;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.c-report__content {
+	flex: 1;
+	margin-right: 3rem;
 }
 
 .c-report__header {
@@ -12,7 +21,7 @@
 }
 
 .c-report__date {
-	font-size: $font-size-h2;
+	font-size: variables.$font-size-h2;
 	color: #666;
 }
 
