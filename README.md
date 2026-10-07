@@ -2,19 +2,45 @@
 
 **SN Developers: This is a Public repository. Do not add company-specific implementation details.**
 
-## Purpose 
+## Purpose
 
 This is a public repository used for test purposes.
 
 ## Usage
 
-In order to use this demo you'll need to have [Node.js](https://nodejs.org/) installed - this test requires **Node.js 22.16.0+**.
-If you use [NVM](https://github.com/nvm-sh/nvm), you can run `nvm use` to set up the Node / NPM version.
+This project requires [Node.js](https://nodejs.org/) 26 or later.
 
-1. Clone this repository on the command line
-2. Make sure the correct version of Node.js (22.16.0) is installed
-3. Install dependencies with ```npm install```
-4. Make any code changes in this repository. Commands to run and build the application:
-    - Build: ```npm run build```
-    - Start application locally (on port 3000): ```npm start```
-    - Start application locally and watch for changes (on port 3000): ```npm run start:dev```
+The repository includes configuration for both [mise](https://mise.jdx.dev/) and [nvm](https://github.com/nvm-sh/nvm):
+
+- `mise.toml` for mise
+- `.nvmrc` for nvm
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Build the application:
+
+```bash
+npm run build
+```
+
+Start the application locally on port 3000:
+
+```bash
+npm start
+```
+
+Start the application in development mode with server, JavaScript, and Sass watchers:
+
+```bash
+npm run start:dev
+```
+
+Run tests:
+
+```bash
+npm test
+```

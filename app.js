@@ -1,7 +1,6 @@
 import express from 'express';
 import {dirname, join} from 'path';
 import {fileURLToPath} from 'url';
-import cookieParser from 'cookie-parser';
 import morgan from 'morgan';
 
 import {indexRouter} from './routes/index.js';
@@ -19,7 +18,6 @@ app.set('view engine', 'hbs');
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(join(__dirname, 'public')));
 
 app.use('/', indexRouter);
